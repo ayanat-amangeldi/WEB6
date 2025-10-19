@@ -1,10 +1,13 @@
 function addTask() {
-  let input = document.getElementById("taskInput");
-  let text = input.value;
-  if (text === "") return;
+  let title = document.getElementById("taskTitle").value.trim();
+  let desc = document.getElementById("taskDesc").value.trim();
+
+  if (title === "" || desc === "") return;
 
   let li = document.createElement("li");
-  li.innerText = text;
+
+  let taskContent = document.createElement("div");
+  taskContent.innerHTML = `<strong>${title}</strong><br><small>${desc}</small>`;
 
   let delBtn = document.createElement("button");
   delBtn.innerText = "Delete";
@@ -16,7 +19,10 @@ function addTask() {
     li.style.textDecoration = "line-through";
   };
 
+  li.appendChild(taskContent);
   li.appendChild(delBtn);
   document.getElementById("taskList").appendChild(li);
-  input.value = "";
+
+  document.getElementById("taskTitle").value = "";
+  document.getElementById("taskDesc").value = "";
 }
