@@ -105,3 +105,9 @@ li button:hover {
   color: #555;
   white-space: pre-wrap;
 }
+
+textarea {
+  resize: vertical;
+  max-height: 300px;
+}
+
