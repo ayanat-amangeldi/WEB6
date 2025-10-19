@@ -7,7 +7,10 @@ function addTask() {
   let li = document.createElement("li");
 
   let taskContent = document.createElement("div");
-  taskContent.innerHTML = `<strong>${title}</strong><br><small>${desc}</small>`;
+  taskContent.innerHTML = `
+    <strong>${title}</strong>
+    <p class="description">${desc}</p>
+  `;
 
   let delBtn = document.createElement("button");
   delBtn.innerText = "Delete";

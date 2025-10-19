@@ -98,3 +98,10 @@ li button {
 li button:hover {
   background-color: #ff8fab;
 }
+
+.description {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  white-space: pre-wrap;
+}
