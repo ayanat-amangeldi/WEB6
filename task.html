@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assignment 6 — Tasks 0–6</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="tasks.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Part 1 & Part 2 & Part 3 — JavaScript Basics, DOM & Events</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='todo.html'">To-Do List</button>
+      <button onclick="location.href='calculator.html'">Calculator</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Part 1. Introduction to JavaScript -->
+    <section class="card">
+      <h2>Task 0 — First Script</h2>
+      <p>
+        Open the browser console to see <code>console.log()</code> outputs.<br/>
+        This page also shows an <strong>alert</strong> once when loaded.
+      </p>
+      <label>
+        <span>Student Name:</span>
+        <input id="studentName" type="text" placeholder="Your full name" />
+      </label>
+      <label>
+        <span>Group:</span>
+        <input id="studentGroup" type="text" placeholder="Your group" />
+      </label>
+      <button id="logIdentityBtn">Log my name & group</button>
+      <p id="identityEcho" class="muted"></p>
+    </section>
+
+    <section class="card">
+      <h2>Task 1 — Variables & Operators</h2>
+      <div>
+        <label>Number A: <input id="numA" type="number" value="10"></label>
+        <label>Number B: <input id="numB" type="number" value="3"></label>
+        <label>Greeting: <input id="greet" type="text" value="Hello"></label>
+        <label>Name: <input id="name" type="text" value="Ayanat"></label>
+      </div>
+      <button id="runOpsBtn">Run operations (see console)</button>
+      <p class="muted">Results are printed to console and summarized below:</p>
+      <pre id="opsSummary"></pre>
+    </section>
+
+    <!-- Part 2. DOM Manipulation -->
+    <section class="card">
+      <h2>Task 2 — Changing Content</h2>
+      <p id="contentP">This is the original paragraph text.</p>
+      <button id="changeContentBtn">Change Paragraph Text</button>
+    </section>
+
+    <section class="card">
+      <h2>Task 3 — Changing Styles</h2>
+      <div id="styleBox" class="demo-box">
+        I am a block. Change my background and font size.
+      </div>
+      <div>
+        <button id="bgBtn">Change Background</button>
+        <button id="fontBtn">Increase Font Size</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Task 4 — Creating & Removing Elements</h2>
+      <div>
+        <button id="addItemBtn">Add Item</button>
+        <button id="removeItemBtn">Remove Item</button>
+      </div>
+      <ul id="dynamicList"></ul>
+    </section>
+
+    <!-- Part 3. Events -->
+    <section class="card">
+      <h2>Task 5 — Mouse Events</h2>
+      <div id="hoverBox" class="hover-box">Hover over me</div>
+    </section>
+
+    <section class="card">
+      <h2>Task 6 — Keyboard Events</h2>
+      <input id="liveInput" type="text" placeholder="Type here..." />
+      <p>Live value: <strong id="liveValue">(empty)</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ayanat Amangeldi</p>
+  </footer>
+</body>
+</html>

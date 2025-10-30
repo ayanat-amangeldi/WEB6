@@ -111,3 +111,54 @@ textarea {
   max-height: 300px;
 }
 
+/* === Extra styles for tasks.html page === */
+
+.card {
+  background: #fff;
+  margin: 16px auto;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  max-width: 900px;
+  text-align: left;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card label {
+  display: inline-block;
+  margin: 6px 12px 6px 0;
+}
+
+.card input[type="text"],
+.card input[type="number"] {
+  width: 180px;
+}
+
+.muted {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.demo-box {
+  padding: 14px;
+  border-radius: 8px;
+  background: #f0e7ff;
+  display: inline-block;
+  min-width: 280px;
+}
+
+.hover-box {
+  width: 240px;
+  height: 120px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background: #f0e7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-weight: 600;
+}
