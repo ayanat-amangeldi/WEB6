@@ -1,33 +1,38 @@
 // ----- Task 0: First Script -----
-// Change these to your actual name & group (for console output at load)
 const DEFAULT_NAME = "Ayanat Amangeldi";
-const DEFAULT_GROUP = "SE-2429";
+const DEFAULT_AGE = 20;
 
-// alert once on page load
 window.addEventListener("DOMContentLoaded", () => {
   alert("Hello, JavaScript World!");
-
   console.log("Student:", DEFAULT_NAME);
-  console.log("Group:", DEFAULT_GROUP);
+  console.log("Age:", DEFAULT_AGE);
 
-  // wire up "Log my name & group" button
+  // Task 0
   const logBtn = document.getElementById("logIdentityBtn");
   const nameInput = document.getElementById("studentName");
-  const groupInput = document.getElementById("studentGroup");
+  const ageInput = document.getElementById("studentAge");
   const echo = document.getElementById("identityEcho");
 
   logBtn.addEventListener("click", () => {
-    const n = nameInput.value.trim() || DEFAULT_NAME;
-    const g = groupInput.value.trim() || DEFAULT_GROUP;
-    console.log(`[Task 0] Name: ${n}, Group: ${g}`);
-    echo.textContent = `Logged: ${n} — ${g}`;
+    const name = nameInput.value.trim() || DEFAULT_NAME;
+    const age = parseInt(ageInput.value) || DEFAULT_AGE;
+
+    console.log(`[Task 0] Name: ${name}, Age: ${age}`);
+
+    if (age < 18) {
+      echo.textContent = `Hi, ${name}. You are not an adult.`;
+      echo.style.color = "red";
+    } else {
+      echo.textContent = `Welcome, ${name}! You are an adult.`;
+      echo.style.color = "green";
+    }
   });
 
   // ----- Task 1: Variables & Operators -----
   const numA = document.getElementById("numA");
   const numB = document.getElementById("numB");
   const greet = document.getElementById("greet");
-  const name = document.getElementById("name");
+  const nameField = document.getElementById("name");
   const runOpsBtn = document.getElementById("runOpsBtn");
   const opsSummary = document.getElementById("opsSummary");
 
@@ -35,20 +40,16 @@ window.addEventListener("DOMContentLoaded", () => {
     const a = Number(numA.value);
     const b = Number(numB.value);
     const str1 = greet.value;
-    const str2 = name.value;
+    const str2 = nameField.value;
 
     const add = a + b;
     const sub = a - b;
     const mul = a * b;
     const div = b === 0 ? "∞ (division by zero)" : a / b;
-
     const concat = str1 + ", " + str2 + "!";
-    const isBig = add > 10; // boolean
+    const isBig = add > 10;
 
-    console.log("[Task 1] a:", a, "b:", b);
-    console.log("[Task 1] +:", add, " -:", sub, " *:", mul, " /:", div);
-    console.log("[Task 1] concat:", concat);
-    console.log("[Task 1] boolean isBig (add>10):", isBig);
+    console.log("[Task 1]", { a, b, add, sub, mul, div, concat, isBig });
 
     opsSummary.textContent =
 `a=${a}, b=${b}
@@ -60,8 +61,16 @@ isBig=${isBig}`;
   // ----- Task 2: Changing Content -----
   const contentP = document.getElementById("contentP");
   const changeContentBtn = document.getElementById("changeContentBtn");
+  const originalText = contentP.textContent;
+  let swapped = false;
+
   changeContentBtn.addEventListener("click", () => {
-    contentP.textContent = "The paragraph text has been changed!";
+    if (!swapped) {
+      contentP.textContent = "The paragraph text has been changed!";
+    } else {
+      contentP.textContent = originalText;
+    }
+    swapped = !swapped;
   });
 
   // ----- Task 3: Changing Styles -----
@@ -101,23 +110,28 @@ isBig=${isBig}`;
     if (last) last.remove();
   });
 
-  // ----- Task 5: Mouse Events (mouseover / mouseout) -----
+  // ----- Task 5: Mouse Events -----
   const hoverBox = document.getElementById("hoverBox");
   const originalBg = getComputedStyle(hoverBox).backgroundColor;
 
   hoverBox.addEventListener("mouseover", () => {
-    hoverBox.style.backgroundColor = "#b8c0ff"; // change color on hover
+    hoverBox.style.backgroundColor = "#b8c0ff";
   });
-
   hoverBox.addEventListener("mouseout", () => {
-    hoverBox.style.backgroundColor = originalBg; // restore
+    hoverBox.style.backgroundColor = originalBg;
   });
 
-  // ----- Task 6: Keyboard Events (keyup) -----
+  // ----- Task 6: Keyboard Events -----
   const liveInput = document.getElementById("liveInput");
   const liveValue = document.getElementById("liveValue");
+  const liveCount = document.getElementById("liveCount"); // элемент для счётчика
 
-  liveInput.addEventListener("keyup", () => {
-    liveValue.textContent = liveInput.value || "(empty)";
-  });
+  const updateLive = () => {
+    const val = liveInput.value || "";
+    liveValue.textContent = val || "(empty)";
+    if (liveCount) liveCount.textContent = String(val.length);
+  };
+
+  liveInput.addEventListener("keyup", updateLive);
+  updateLive();
 });
